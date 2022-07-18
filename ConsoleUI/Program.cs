@@ -32,22 +32,67 @@ namespace ConsoleUI
             */
 
             // Create a list of Vehicle called vehicles
-
+            var vehicles = new List<Vehicle>();
             /*
              * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
              * - new it up as one of each derived class
              * Set the properties with object initializer syntax
              */
+            var car1 = new Car()
+            {
+                Year = "1995",
+                Make = "Ford",
+                Model = "Ranger",
+                HasTrunk = true
+            };
+            var motorcycle1 = new Motorcycle()
+            {
+                Year = "2003",
+                Make = "Honda",
+                Model = "Goldwing",
+                HasSideCar = true
+            };
 
+            Vehicle vehicle1 = new Motorcycle()
+            {
+                Year = "1975",
+                Make = "Harley Davidson",
+                Model = "Shovelhead",
+                HasSideCar = false
+            };
+
+            Vehicle vehicle2 = new Car()
+            {
+                Year = "2007",
+                Make = "Chrysler",
+                Model = "Sebring",
+                HasTrunk = true
+            };
+
+
+          
             /*
              * Add the 4 vehicles to the list
              * Using a foreach loop iterate over each of the properties
              */
 
+            vehicles.Add(vehicle1);
+            vehicles.Add(vehicle2);
+            vehicles.Add(car1);
+            vehicles.Add(motorcycle1);
+
+            foreach (var vehicle in vehicles)
+            {
+                Console.WriteLine($"Make: {vehicle.Make}, Year: {vehicle.Year}, Model: {vehicle.Model}");
+                vehicle.DriveAbstract();
+
+            }
+
             // Call each of the drive methods for one car and one motorcycle
 
+
             #endregion            
-            Console.ReadLine();
+           
         }
     }
 }
